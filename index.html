@@ -14,6 +14,7 @@
             --pearl: #faf7f4;
             --white: #ffffff;
             --border: #e8dfd6;
+            --code-bg: #282a36;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -49,7 +50,7 @@
         header {
             background: linear-gradient(135deg, #5c4a7a, #7a5c8a, #9b7fa6);
             color: var(--white);
-            padding: 3rem 1rem 2.5rem;
+            padding: 3.5rem 1rem 3rem;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -70,10 +71,10 @@
         }
 
         .photo-container {
-            width: 140px; height: 140px;
+            width: 145px; height: 145px;
             border-radius: 50%;
             margin: 0 auto 1.2rem;
-            border: 4px solid rgba(255,255,255,0.7);
+            border: 4px solid rgba(255,255,255,0.75);
             box-shadow: 0 4px 20px rgba(0,0,0,0.25);
             overflow: hidden;
             background-color: rgba(255,255,255,0.15);
@@ -86,98 +87,114 @@
         }
         .photo-placeholder { display: none !important; }
 
-        header h1 { font-size: 2rem; margin-bottom: 0.4rem; font-weight: 600; }
-        header .sub { font-size: 1.05rem; opacity: 0.9; }
-        header .sub2 { font-size: 0.9rem; opacity: 0.75; margin-top: 0.3rem; }
+        header h1 { font-size: 2.2rem; margin-bottom: 0.4rem; font-weight: 600; letter-spacing: -0.5px; }
+        header .sub { font-size: 1.15rem; opacity: 0.95; font-weight: 300; }
+        header .sub2 { font-size: 0.9rem; opacity: 0.8; margin-top: 0.3rem; }
 
         .divider {
             text-align: center;
             color: rgba(255,255,255,0.4);
             font-size: 0.8rem;
             letter-spacing: 6px;
-            margin-top: 1rem;
+            margin-top: 1.2rem;
         }
 
         .container {
-            max-width: 900px;
+            max-width: 950px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
             position: relative;
             z-index: 1;
         }
 
         section {
             background-color: var(--pearl);
-            padding: 1.8rem;
-            margin-bottom: 1.5rem;
-            border-radius: 12px;
-            box-shadow: 0 2px 12px rgba(92,74,122,0.07);
+            padding: 2rem;
+            margin-bottom: 1.8rem;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(92,74,122,0.05);
             border: 1px solid var(--border);
             position: relative;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
         section:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(92,74,122,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(92,74,122,0.09);
         }
 
-        /* Detalle decorativo sutil en esquina */
         section::before {
             content: '';
             position: absolute;
             top: 0; left: 0;
-            width: 4px; height: 100%;
+            width: 5px; height: 100%;
             background: linear-gradient(180deg, var(--primary), var(--accent));
-            border-radius: 12px 0 0 12px;
+            border-radius: 14px 0 0 14px;
         }
 
         h2 {
             color: var(--primary);
             border-bottom: 1.5px solid var(--border);
-            padding-bottom: 0.4rem;
-            margin-bottom: 1rem;
-            font-size: 1.25rem;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.2rem;
+            font-size: 1.35rem;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
-        h2 .icon { font-size: 1rem; }
+        h2 .icon { font-size: 1.1rem; }
 
         ul { list-style-type: none; }
         li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.4rem;
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
             position: relative;
-            font-size: 0.95rem;
+            font-size: 0.98rem;
         }
         li::before {
             content: "✦";
             position: absolute;
             left: 0;
             color: var(--accent);
-            font-size: 0.65rem;
-            top: 5px;
+            font-size: 0.7rem;
+            top: 4px;
         }
+        li:last-child { margin-bottom: 0; }
 
         .badge {
             background: linear-gradient(135deg, #f0ebe6, #e8dfd6);
             color: var(--primary);
-            padding: 0.2rem 0.7rem;
+            padding: 0.25rem 0.8rem;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: 600;
             display: inline-block;
-            margin-top: 0.3rem;
+            margin-top: 0.4rem;
             border: 1px solid var(--border);
         }
+
+        /* Especialidades (Nueva sub-sección) */
+        .grid-focus {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .focus-card {
+            background: rgba(255,255,255,0.6);
+            border: 1px dashed var(--border);
+            padding: 1rem;
+            border-radius: 8px;
+        }
+        .focus-card h4 { color: var(--primary); margin-bottom: 0.3rem; font-size: 1rem; }
+        .focus-card p { font-size: 0.88rem; color: #5a5265; }
 
         /* Habilidades técnicas */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 1.2rem;
         }
-        .skill-item strong { font-size: 0.9rem; color: var(--dark); display: block; margin-bottom: 3px; }
+        .skill-item strong { font-size: 0.9rem; color: var(--dark); display: block; margin-bottom: 4px; }
         .skill-bar-bg {
             background-color: var(--border);
             border-radius: 10px;
@@ -189,21 +206,40 @@
             height: 100%;
         }
 
+        /* Bloque de código interactivo simulado */
+        .code-box {
+            background-color: var(--code-bg);
+            color: #f8f8f2;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 1.2rem;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            margin-top: 1.2rem;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            overflow-x: auto;
+        }
+        .code-keyword { color: #ff79c6; }
+        .code-string { color: #f1fa8c; }
+        .code-comment { color: #6272a4; font-style: italic; }
+        .code-func { color: #50fa7b; }
+
         /* Idiomas */
         .lang-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 1rem;
         }
         .lang-card {
             background: linear-gradient(135deg, #f0ebe6, #faf7f4);
             border-radius: 10px;
-            padding: 1rem;
+            padding: 1.2rem;
             text-align: center;
             border: 1px solid var(--border);
+            transition: transform 0.2s;
         }
-        .lang-flag { font-size: 2.2rem; margin-bottom: 0.3rem; }
-        .lang-name { font-weight: 600; color: var(--primary); font-size: 0.95rem; }
+        .lang-card:hover { transform: scale(1.03); }
+        .lang-flag { font-size: 2.4rem; margin-bottom: 0.3rem; }
+        .lang-name { font-weight: 600; color: var(--primary); font-size: 1rem; }
         .lang-level { font-size: 0.8rem; color: #8a7a6a; margin-top: 2px; }
 
         /* Habilidades blandas */
@@ -219,12 +255,12 @@
             background: linear-gradient(135deg, #f5f0eb, #faf7f4);
             border: 1px solid var(--border);
             border-radius: 10px;
-            padding: 0.9rem;
+            padding: 1rem;
             text-align: center;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
         }
         .interest-card:hover { background: var(--white); }
-        .interest-icon { font-size: 1.8rem; margin-bottom: 0.3rem; display: block; }
+        .interest-icon { font-size: 2rem; margin-bottom: 0.4rem; display: block; }
 
         /* Contacto */
         .contact-grid {
@@ -240,16 +276,21 @@
             background: linear-gradient(135deg, #f5f0eb, #faf7f4);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 0.8rem 1.2rem;
+            padding: 0.9rem 1.2rem;
             color: var(--dark);
             text-decoration: none;
+            transition: all 0.2s ease;
         }
-        .contact-item:hover { border-color: var(--accent); background: var(--white); }
-        .contact-icon { font-size: 1.2rem; min-width: 20px; text-align: center;}
+        .contact-item:hover { 
+            border-color: var(--primary); 
+            background: var(--white);
+            transform: translateX(3px);
+        }
+        .contact-icon { font-size: 1.3rem; min-width: 20px; text-align: center;}
 
         footer {
             text-align: center;
-            padding: 2rem;
+            padding: 2.5rem;
             font-size: 0.85rem;
             color: #9a8a7a;
             position: relative;
@@ -257,7 +298,7 @@
         footer::before {
             content: '· · ✦ · ·';
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.6rem;
             color: var(--accent);
             font-size: 0.9rem;
             opacity: 0.6;
@@ -281,7 +322,18 @@
 
         <section id="sobre-mi">
             <h2><span class="icon">✨</span> Resumen Profesional</h2>
-            <p>Estudiante de Estadística e Informática con sólidas habilidades en análisis de datos, programación y manejo de herramientas tecnológicas. Apasionada por la ciencia de datos, el desarrollo de software y la aplicación de métodos estadísticos para la toma de decisiones. Polígota con dominio de español, inglés, francés y ruso.</p>
+            <p>Estudiante de Estadística e Informática enfocada en la intersección del análisis cuantitativo y el desarrollo tecnológico. Apasionada por la manipulación de datos masivos, la creación de modelos predictivos y el diseño de visualizaciones de alto impacto para la toma de decisiones estratégicas. Mi perfil políglota me permite adaptarme de manera ágil a equipos internacionales y documentación técnica avanzada.</p>
+            
+            <div class="grid-focus">
+                <div class="focus-card">
+                    <h4>Análisis Avanzado</h4>
+                    <p>Modelado matemático, pruebas de hipótesis y analítica predictiva aplicada.</p>
+                </div>
+                <div class="focus-card">
+                    <h4>Desarrollo Científico</h4>
+                    <p>Programación estructurada enfocada en la automatización de procesos estadísticos.</p>
+                </div>
+            </div>
         </section>
 
         <section id="educacion">
@@ -290,11 +342,25 @@
                 <li>
                     <strong>Estadística e Informática</strong><br>
                     Universidad Nacional del Altiplano — Puno<br>
-                    <span class="badge">En curso</span>
+                    <span class="badge">En curso (Séptimo Semestre)</span>
                 </li>
                 <li>
                     <strong>Educación Secundaria</strong><br>
-                    Puno, Perú (Completado)
+                    Puno, Perú (Egresada con Excelencia Académica)
+                </li>
+            </ul>
+        </section>
+
+        <section id="logros">
+            <h2><span class="icon">🏆</span> Reconocimientos y Logros</h2>
+            <ul>
+                <li>
+                    <strong>Tercio Superior</strong> — Universidad Nacional del Altiplano.<br>
+                    <small style="color:#7a6a8a;">Reconocimiento por rendimiento académico destacado en la escuela profesional.</small>
+                </li>
+                <li>
+                    <strong>Proyectos de Investigación Estudiantil</strong><br>
+                    <small style="color:#7a6a8a;">Participación activa en talleres de modelamiento e investigación cuantitativa regional.</small>
                 </li>
             </ul>
         </section>
@@ -307,8 +373,8 @@
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Python (Pandas, NumPy, Matplotlib)</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
+                    <strong>Python (Pandas, NumPy, Scikit-Learn)</strong>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div>
                 </div>
                 <div class="skill-item">
                     <strong>R Studio (tidyverse, ggplot2)</strong>
@@ -319,37 +385,37 @@
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Power BI</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:78%"></div></div>
+                    <strong>Power BI / Dashboards</strong>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Excel Avanzado</strong>
+                    <strong>Excel Avanzado (Macros y Tablas Dinámicas)</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
                 <div class="skill-item">
                     <strong>SPSS Statistics</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <strong>Machine Learning (scikit-learn)</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <strong>Administración de Redes y TI</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div>
-                </div>
-                <div class="skill-item">
-                    <strong>Git / GitHub</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>HTML5 / CSS3</strong>
-                    <div class="skill-bar-bg"><div class="skill-bar" style="width:68%"></div></div>
+                    <strong>Git / GitHub (Control de Versiones)</strong>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:78%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Ciencia de Datos</strong>
+                    <strong>HTML5 / CSS3</strong>
+                    <div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div>
+                </div>
+                <div class="skill-item">
+                    <strong>Ciencia de Datos y Minería</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div>
                 </div>
+            </div>
+
+            <div class="code-box">
+                <span class="code-comment"># Automatizando la carga y limpieza de datos</span><br>
+                <span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd<br>
+                data = pd.<span class="code-func">read_csv</span>(<span class="code-string">"unap_research_data.csv"</span>)<br>
+                clean_data = data.<span class="code-func">dropna</span>().<span class="code-func">query</span>(<span class="code-string">'status == "Active"'</span>)<br>
+                <span class="code-keyword">print</span>(<span class="code-string">f"Estructura lista para modelado: {clean_data.shape}"</span>)
             </div>
         </section>
 
@@ -364,17 +430,17 @@
                 <div class="lang-card">
                     <div class="lang-flag">🇺🇸</div>
                     <div class="lang-name">Inglés</div>
-                    <div class="lang-level">Avanzado</div>
+                    <div class="lang-level">Avanzado (C1)</div>
                 </div>
                 <div class="lang-card">
                     <div class="lang-flag">🇫🇷</div>
                     <div class="lang-name">Francés</div>
-                    <div class="lang-level">Intermedio</div>
+                    <div class="lang-level">Intermedio (B2)</div>
                 </div>
                 <div class="lang-card">
                     <div class="lang-flag">🇷🇺</div>
                     <div class="lang-name">Ruso</div>
-                    <div class="lang-level">Básico</div>
+                    <div class="lang-level">Básico Acelerado</div>
                 </div>
             </div>
         </section>
@@ -382,18 +448,16 @@
         <section id="habilidades-blandas">
             <h2><span class="icon">🌸</span> Habilidades Blandas</h2>
             <div class="soft-skills">
-                <span class="badge">Trabajo en equipo</span>
                 <span class="badge">Pensamiento analítico</span>
                 <span class="badge">Resolución de problemas</span>
+                <span class="badge">Trabajo en equipo</span>
                 <span class="badge">Comunicación efectiva</span>
-                <span class="badge">Adaptabilidad</span>
+                <span class="badge">Adaptabilidad cultural</span>
                 <span class="badge">Gestión del tiempo</span>
                 <span class="badge">Liderazgo</span>
-                <span class="badge">Creatividad</span>
                 <span class="badge">Atención al detalle</span>
                 <span class="badge">Proactividad</span>
                 <span class="badge">Pensamiento crítico</span>
-                <span class="badge">Empatía</span>
             </div>
         </section>
 
@@ -420,23 +484,23 @@
         </section>
 
         <section id="proyectos">
-            <h2><span class="icon">📊</span> Proyectos Académicos</h2>
+            <h2><span class="icon">📊</span> Proyectos Destacados</h2>
             <ul>
                 <li>
                     <strong>Análisis exploratorio de datos de salud regional</strong><br>
-                    Limpieza, visualización y modelado de datos de salud en Puno.
+                    Procesamiento, limpieza y modelado estadístico de variables sociodemográficas en la región Puno usando librerías de Python.
                     <span class="badge">Python · EDA · Salud Pública</span>
                 </li>
                 <li>
                     <strong>Dashboard interactivo de rendimiento académico</strong><br>
-                    Visualización en Power BI de tasas de aprobación y deserción universitaria.
+                    Estructuración de base de datos SQL y desarrollo de un tablero dinámico en Power BI para evaluar índices de deserción estudiantil.
                     <span class="badge">SQL · Power BI · Educación</span>
                 </li>
             </ul>
         </section>
 
         <section id="intereses">
-            <h2><span class="icon">💡</span> Intereses</h2>
+            <h2><span class="icon">💡</span> Áreas de Interés</h2>
             <div class="interests-grid">
                 <div class="interest-card">
                     <div class="interest-icon">📈</div>
@@ -460,13 +524,13 @@
                 </div>
                 <div class="interest-card">
                     <div class="interest-icon">🎨</div>
-                    Diseño Digital
+                    Diseño de Datos
                 </div>
             </div>
         </section>
 
         <section id="contacto">
-            <h2><span class="icon">📬</span> Contacto</h2>
+            <h2><span class="icon">📬</span> Canales de Contacto</h2>
             <div class="contact-grid">
                 <a href="mailto:nicole.gsullcahuaman@email.com" class="contact-item">
                     <span class="contact-icon">📧</span>
