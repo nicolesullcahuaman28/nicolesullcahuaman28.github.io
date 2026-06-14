@@ -14,7 +14,6 @@
             --pearl: #faf7f4;
             --white: #ffffff;
             --border: #e8dfd6;
-            --code-bg: #282a36;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
@@ -172,7 +171,7 @@
             border: 1px solid var(--border);
         }
 
-        /* Especialidades (Nueva sub-sección) */
+        /* Especialidades */
         .grid-focus {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -205,23 +204,6 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             height: 100%;
         }
-
-        /* Bloque de código interactivo simulado */
-        .code-box {
-            background-color: var(--code-bg);
-            color: #f8f8f2;
-            font-family: 'Courier New', Courier, monospace;
-            padding: 1.2rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            margin-top: 1.2rem;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-            overflow-x: auto;
-        }
-        .code-keyword { color: #ff79c6; }
-        .code-string { color: #f1fa8c; }
-        .code-comment { color: #6272a4; font-style: italic; }
-        .code-func { color: #50fa7b; }
 
         /* Idiomas */
         .lang-grid {
@@ -408,14 +390,6 @@
                     <strong>Ciencia de Datos y Minería</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div>
                 </div>
-            </div>
-
-            <div class="code-box">
-                <span class="code-comment"># Automatizando la carga y limpieza de datos</span><br>
-                <span class="code-keyword">import</span> pandas <span class="code-keyword">as</span> pd<br>
-                data = pd.<span class="code-func">read_csv</span>(<span class="code-string">"unap_research_data.csv"</span>)<br>
-                clean_data = data.<span class="code-func">dropna</span>().<span class="code-func">query</span>(<span class="code-string">'status == "Active"'</span>)<br>
-                <span class="code-keyword">print</span>(<span class="code-string">f"Estructura lista para modelado: {clean_data.shape}"</span>)
             </div>
         </section>
 
