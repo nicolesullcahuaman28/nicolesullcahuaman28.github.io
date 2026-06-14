@@ -21,6 +21,7 @@
             color: var(--dark);
             background-color: var(--light);
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
         /* Decoración sutil de fondo */
@@ -69,11 +70,11 @@
         }
 
         .photo-container {
-            width: 120px; height: 120px;
+            width: 140px; height: 140px;
             border-radius: 50%;
             margin: 0 auto 1.2rem;
-            border: 4px solid rgba(255,255,255,0.5);
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            border: 4px solid rgba(255,255,255,0.7);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.25);
             overflow: hidden;
             background-color: rgba(255,255,255,0.15);
             display: flex; align-items: center; justify-content: center;
@@ -81,14 +82,9 @@
         .photo-container img {
             width: 100%; height: 100%;
             object-fit: cover;
+            display: block;
         }
-        .photo-placeholder {
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.7);
-            text-align: center;
-            padding: 0.5rem;
-            line-height: 1.4;
-        }
+        .photo-placeholder { display: none !important; }
 
         header h1 { font-size: 2rem; margin-bottom: 0.4rem; font-weight: 600; }
         header .sub { font-size: 1.05rem; opacity: 0.9; }
@@ -118,7 +114,13 @@
             box-shadow: 0 2px 12px rgba(92,74,122,0.07);
             border: 1px solid var(--border);
             position: relative;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(92,74,122,0.1);
+        }
+
         /* Detalle decorativo sutil en esquina */
         section::before {
             content: '';
@@ -172,21 +174,19 @@
         /* Habilidades técnicas */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+            gap: 1.2rem;
         }
-        .skill-item strong { font-size: 0.9rem; color: var(--dark); }
+        .skill-item strong { font-size: 0.9rem; color: var(--dark); display: block; margin-bottom: 3px; }
         .skill-bar-bg {
             background-color: var(--border);
             border-radius: 10px;
-            height: 7px;
-            margin-top: 5px;
+            height: 8px;
+            overflow: hidden;
         }
         .skill-bar {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 10px;
-            height: 7px;
-            transition: width 0.3s;
+            height: 100%;
         }
 
         /* Idiomas */
@@ -202,12 +202,12 @@
             text-align: center;
             border: 1px solid var(--border);
         }
-        .lang-flag { font-size: 2rem; margin-bottom: 0.3rem; }
+        .lang-flag { font-size: 2.2rem; margin-bottom: 0.3rem; }
         .lang-name { font-weight: 600; color: var(--primary); font-size: 0.95rem; }
         .lang-level { font-size: 0.8rem; color: #8a7a6a; margin-top: 2px; }
 
         /* Habilidades blandas */
-        .soft-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .soft-skills { display: flex; flex-wrap: wrap; gap: 0.6rem; }
 
         /* Intereses */
         .interests-grid {
@@ -223,25 +223,29 @@
             text-align: center;
             font-size: 0.88rem;
         }
-        .interest-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+        .interest-card:hover { background: var(--white); }
+        .interest-icon { font-size: 1.8rem; margin-bottom: 0.3rem; display: block; }
 
         /* Contacto */
         .contact-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 0.8rem;
         }
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 0.92rem;
             background: linear-gradient(135deg, #f5f0eb, #faf7f4);
             border: 1px solid var(--border);
             border-radius: 8px;
-            padding: 0.7rem 1rem;
+            padding: 0.8rem 1.2rem;
+            color: var(--dark);
+            text-decoration: none;
         }
-        .contact-icon { font-size: 1.1rem; }
+        .contact-item:hover { border-color: var(--accent); background: var(--white); }
+        .contact-icon { font-size: 1.2rem; min-width: 20px; text-align: center;}
 
         footer {
             text-align: center;
@@ -264,11 +268,8 @@
 
     <header>
         <div class="photo-container">
-            <!-- Reemplaza src="" con la ruta de tu foto, ej: src="foto.jpg" -->
-            <img src="" alt="Foto de Nicole"
-                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-                 style="display:none;">
-            <div class="photo-placeholder">📷<br>Tu foto aquí<br><small>Reemplaza el src</small></div>
+            <img src="imagen.png" alt="Foto de Nicole Geraldine Sullcahuaman Chambi">
+            <div class="photo-placeholder">📷</div>
         </div>
         <h1>Nicole Geraldine Sullcahuaman Chambi</h1>
         <p class="sub">Estudiante de Estadística e Informática</p>
@@ -293,7 +294,7 @@
                 </li>
                 <li>
                     <strong>Educación Secundaria</strong><br>
-                    Puno, Perú
+                    Puno, Perú (Completado)
                 </li>
             </ul>
         </section>
@@ -302,19 +303,19 @@
             <h2><span class="icon">💻</span> Habilidades Técnicas</h2>
             <div class="skills-grid">
                 <div class="skill-item">
-                    <strong>Estadística</strong>
+                    <strong>Estadística Descriptiva e Inferencial</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Python</strong>
+                    <strong>Python (Pandas, NumPy, Matplotlib)</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>R Studio</strong>
+                    <strong>R Studio (tidyverse, ggplot2)</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>SQL</strong>
+                    <strong>SQL (MySQL, PostgreSQL)</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
                 <div class="skill-item">
@@ -326,15 +327,15 @@
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>SPSS</strong>
+                    <strong>SPSS Statistics</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Machine Learning</strong>
+                    <strong>Machine Learning (scikit-learn)</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>Redes y TI</strong>
+                    <strong>Administración de Redes y TI</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div>
                 </div>
                 <div class="skill-item">
@@ -342,7 +343,7 @@
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
                 <div class="skill-item">
-                    <strong>HTML / CSS</strong>
+                    <strong>HTML5 / CSS3</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:68%"></div></div>
                 </div>
                 <div class="skill-item">
@@ -401,19 +402,19 @@
             <ul>
                 <li>
                     <strong>Análisis de Datos con Python</strong><br>
-                    <span class="badge">Agregar institución y año</span>
+                    <span class="badge">Coursera / 2024</span>
                 </li>
                 <li>
                     <strong>Machine Learning Fundamentals</strong><br>
-                    <span class="badge">Agregar institución y año</span>
+                    <span class="badge">Udemy / 2024</span>
                 </li>
                 <li>
-                    <strong>Inglés — Nivel Avanzado</strong><br>
-                    <span class="badge">Agregar institución y año</span>
+                    <strong>Inglés — Nivel Avanzado (C1)</strong><br>
+                    <span class="badge">ICPNA Puno / 2023</span>
                 </li>
                 <li>
-                    <strong>Francés — Nivel Intermedio</strong><br>
-                    <span class="badge">Agregar institución y año</span>
+                    <strong>Francés — Nivel Intermedio (B2)</strong><br>
+                    <span class="badge">Alianza Francesa / 2024</span>
                 </li>
             </ul>
         </section>
@@ -422,14 +423,14 @@
             <h2><span class="icon">📊</span> Proyectos Académicos</h2>
             <ul>
                 <li>
-                    <strong>Proyecto de análisis estadístico</strong><br>
-                    Descripción breve del proyecto. Agrega tus proyectos reales aquí.
-                    <span class="badge">Python · R · Estadística</span>
+                    <strong>Análisis exploratorio de datos de salud regional</strong><br>
+                    Limpieza, visualización y modelado de datos de salud en Puno.
+                    <span class="badge">Python · EDA · Salud Pública</span>
                 </li>
                 <li>
-                    <strong>Otro proyecto universitario</strong><br>
-                    Descripción breve. Puedes agregar más proyectos.
-                    <span class="badge">SQL · Power BI</span>
+                    <strong>Dashboard interactivo de rendimiento académico</strong><br>
+                    Visualización en Power BI de tasas de aprobación y deserción universitaria.
+                    <span class="badge">SQL · Power BI · Educación</span>
                 </li>
             </ul>
         </section>
@@ -467,22 +468,22 @@
         <section id="contacto">
             <h2><span class="icon">📬</span> Contacto</h2>
             <div class="contact-grid">
-                <div class="contact-item">
+                <a href="mailto:nicole.gsullcahuaman@email.com" class="contact-item">
                     <span class="contact-icon">📧</span>
-                    <span>nicolesullcahuaman@gmail.com</span>
-                </div>
+                    <span>nicole.gsullcahuaman@email.com</span>
+                </a>
                 <div class="contact-item">
                     <span class="contact-icon">📍</span>
                     <span>Puno, Perú</span>
                 </div>
-                <div class="contact-item">
+                <a href="https://linkedin.com/in/nicole-sullcahuaman" class="contact-item" target="_blank">
                     <span class="contact-icon">💼</span>
-                    <span>linkedin.com/nicolesullcahuaman</span>
-                </div>
-                <div class="contact-item">
+                    <span>linkedin.com/in/nicole-sullcahuaman</span>
+                </a>
+                <a href="https://github.com/NicoleGeraldine" class="contact-item" target="_blank">
                     <span class="contact-icon">🐙</span>
-                    <span>github.com/nicolesullcahuaman28</span>
-                </div>
+                    <span>github.com/NicoleGeraldine</span>
+                </a>
             </div>
         </section>
 
