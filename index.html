@@ -6,207 +6,346 @@
     <title>Nicole Geraldine Sullcahuaman Chambi | Perfil Profesional</title>
     <style>
         :root {
-            --primary: #1e3a8a;
-            --secondary: #0284c7;
-            --dark: #1f2937;
-            --light: #f3f4f6;
+            --primary: #5c4a7a;
+            --secondary: #9b7fa6;
+            --accent: #c9a96e;
+            --dark: #3b3245;
+            --light: #f5f0eb;
+            --pearl: #faf7f4;
             --white: #ffffff;
+            --border: #e8dfd6;
         }
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: var(--dark);
             background-color: var(--light);
             line-height: 1.6;
         }
+
+        /* Decoración sutil de fondo */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -100px; right: -100px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(155,127,166,0.12), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -100px; left: -100px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(201,169,110,0.1), transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, #5c4a7a, #7a5c8a, #9b7fa6);
             color: var(--white);
-            padding: 3rem 1rem;
+            padding: 3rem 1rem 2.5rem;
             text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-        header h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.5rem;
-        }
-        header p {
+        header::before {
+            content: '✦';
+            position: absolute;
+            top: 18px; left: 30px;
             font-size: 1.1rem;
-            opacity: 0.9;
+            opacity: 0.3;
         }
+        header::after {
+            content: '✦';
+            position: absolute;
+            bottom: 18px; right: 30px;
+            font-size: 1.1rem;
+            opacity: 0.3;
+        }
+
+        .photo-container {
+            width: 120px; height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1.2rem;
+            border: 4px solid rgba(255,255,255,0.5);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            overflow: hidden;
+            background-color: rgba(255,255,255,0.15);
+            display: flex; align-items: center; justify-content: center;
+        }
+        .photo-container img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+        .photo-placeholder {
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 0.5rem;
+            line-height: 1.4;
+        }
+
+        header h1 { font-size: 2rem; margin-bottom: 0.4rem; font-weight: 600; }
+        header .sub { font-size: 1.05rem; opacity: 0.9; }
+        header .sub2 { font-size: 0.9rem; opacity: 0.75; margin-top: 0.3rem; }
+
+        .divider {
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 0.8rem;
+            letter-spacing: 6px;
+            margin-top: 1rem;
+        }
+
         .container {
             max-width: 900px;
             margin: 2rem auto;
             padding: 0 1rem;
+            position: relative;
+            z-index: 1;
         }
+
         section {
-            background-color: var(--white);
+            background-color: var(--pearl);
             padding: 1.8rem;
             margin-bottom: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-        h2 {
-            color: var(--primary);
-            border-bottom: 2px solid var(--secondary);
-            padding-bottom: 0.3rem;
-            margin-bottom: 1rem;
-            font-size: 1.4rem;
-        }
-        ul {
-            list-style-type: none;
-        }
-        li {
-            margin-bottom: 0.8rem;
-            padding-left: 1.2rem;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(92,74,122,0.07);
+            border: 1px solid var(--border);
             position: relative;
         }
+        /* Detalle decorativo sutil en esquina */
+        section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--accent));
+            border-radius: 12px 0 0 12px;
+        }
+
+        h2 {
+            color: var(--primary);
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 0.4rem;
+            margin-bottom: 1rem;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        h2 .icon { font-size: 1rem; }
+
+        ul { list-style-type: none; }
+        li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.4rem;
+            position: relative;
+            font-size: 0.95rem;
+        }
         li::before {
-            content: "▹";
+            content: "✦";
             position: absolute;
             left: 0;
-            color: var(--secondary);
-            font-weight: bold;
+            color: var(--accent);
+            font-size: 0.65rem;
+            top: 5px;
         }
+
         .badge {
-            background-color: var(--light);
+            background: linear-gradient(135deg, #f0ebe6, #e8dfd6);
             color: var(--primary);
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: bold;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
             display: inline-block;
             margin-top: 0.3rem;
+            border: 1px solid var(--border);
         }
+
+        /* Habilidades técnicas */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+            gap: 1rem;
+        }
+        .skill-item strong { font-size: 0.9rem; color: var(--dark); }
         .skill-bar-bg {
-            background-color: var(--light);
+            background-color: var(--border);
             border-radius: 10px;
-            height: 8px;
-            margin-top: 4px;
+            height: 7px;
+            margin-top: 5px;
         }
         .skill-bar {
             background: linear-gradient(90deg, var(--primary), var(--secondary));
             border-radius: 10px;
-            height: 8px;
+            height: 7px;
+            transition: width 0.3s;
         }
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
+
+        /* Idiomas */
         .lang-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
             gap: 1rem;
         }
         .lang-card {
-            background-color: var(--light);
-            border-radius: 8px;
+            background: linear-gradient(135deg, #f0ebe6, #faf7f4);
+            border-radius: 10px;
             padding: 1rem;
             text-align: center;
+            border: 1px solid var(--border);
         }
-        .lang-flag {
-            font-size: 2rem;
-            margin-bottom: 0.3rem;
+        .lang-flag { font-size: 2rem; margin-bottom: 0.3rem; }
+        .lang-name { font-weight: 600; color: var(--primary); font-size: 0.95rem; }
+        .lang-level { font-size: 0.8rem; color: #8a7a6a; margin-top: 2px; }
+
+        /* Habilidades blandas */
+        .soft-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+        /* Intereses */
+        .interests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 0.8rem;
         }
-        .lang-name {
-            font-weight: bold;
-            color: var(--primary);
+        .interest-card {
+            background: linear-gradient(135deg, #f5f0eb, #faf7f4);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem;
+            text-align: center;
+            font-size: 0.88rem;
         }
-        .lang-level {
-            font-size: 0.85rem;
-            color: #6b7280;
+        .interest-icon { font-size: 1.5rem; margin-bottom: 0.3rem; }
+
+        /* Contacto */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 0.8rem;
         }
-        .soft-skills {
+        .contact-item {
             display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.92rem;
+            background: linear-gradient(135deg, #f5f0eb, #faf7f4);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
         }
+        .contact-icon { font-size: 1.1rem; }
+
         footer {
             text-align: center;
             padding: 2rem;
+            font-size: 0.85rem;
+            color: #9a8a7a;
+            position: relative;
+        }
+        footer::before {
+            content: '· · ✦ · ·';
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
             font-size: 0.9rem;
-            color: #6b7280;
+            opacity: 0.6;
         }
     </style>
 </head>
 <body>
 
     <header>
+        <div class="photo-container">
+            <!-- Reemplaza src="" con la ruta de tu foto, ej: src="foto.jpg" -->
+            <img src="" alt="Foto de Nicole"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+                 style="display:none;">
+            <div class="photo-placeholder">📷<br>Tu foto aquí<br><small>Reemplaza el src</small></div>
+        </div>
         <h1>Nicole Geraldine Sullcahuaman Chambi</h1>
-        <p>Estudiante de Estadística e Informática</p>
-        <p style="font-size:0.95rem; opacity:0.8;">Universidad Nacional del Altiplano — Puno, Perú</p>
+        <p class="sub">Estudiante de Estadística e Informática</p>
+        <p class="sub2">Universidad Nacional del Altiplano — Puno, Perú</p>
+        <div class="divider">· · · · ·</div>
     </header>
 
     <div class="container">
 
         <section id="sobre-mi">
-            <h2>Resumen Profesional</h2>
+            <h2><span class="icon">✨</span> Resumen Profesional</h2>
             <p>Estudiante de Estadística e Informática con sólidas habilidades en análisis de datos, programación y manejo de herramientas tecnológicas. Apasionada por la ciencia de datos, el desarrollo de software y la aplicación de métodos estadísticos para la toma de decisiones. Polígota con dominio de español, inglés, francés y ruso.</p>
         </section>
 
         <section id="educacion">
-            <h2>Formación Académica</h2>
+            <h2><span class="icon">🎓</span> Formación Académica</h2>
             <ul>
                 <li>
                     <strong>Estadística e Informática</strong><br>
                     Universidad Nacional del Altiplano — Puno<br>
                     <span class="badge">En curso</span>
                 </li>
+                <li>
+                    <strong>Educación Secundaria</strong><br>
+                    Puno, Perú
+                </li>
             </ul>
         </section>
 
         <section id="habilidades-tecnicas">
-            <h2>Habilidades Técnicas</h2>
+            <h2><span class="icon">💻</span> Habilidades Técnicas</h2>
             <div class="skills-grid">
-                <div>
+                <div class="skill-item">
                     <strong>Estadística</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Python</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:80%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>R Studio</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:85%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>SQL</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Power BI</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:78%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Excel Avanzado</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:90%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>SPSS</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:72%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Machine Learning</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:65%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Redes y TI</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:70%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Git / GitHub</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:75%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>HTML / CSS</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:68%"></div></div>
                 </div>
-                <div>
+                <div class="skill-item">
                     <strong>Ciencia de Datos</strong>
                     <div class="skill-bar-bg"><div class="skill-bar" style="width:82%"></div></div>
                 </div>
@@ -214,7 +353,7 @@
         </section>
 
         <section id="idiomas">
-            <h2>Idiomas</h2>
+            <h2><span class="icon">🌍</span> Idiomas</h2>
             <div class="lang-grid">
                 <div class="lang-card">
                     <div class="lang-flag">🇵🇪</div>
@@ -240,7 +379,7 @@
         </section>
 
         <section id="habilidades-blandas">
-            <h2>Habilidades Blandas</h2>
+            <h2><span class="icon">🌸</span> Habilidades Blandas</h2>
             <div class="soft-skills">
                 <span class="badge">Trabajo en equipo</span>
                 <span class="badge">Pensamiento analítico</span>
@@ -252,6 +391,98 @@
                 <span class="badge">Creatividad</span>
                 <span class="badge">Atención al detalle</span>
                 <span class="badge">Proactividad</span>
+                <span class="badge">Pensamiento crítico</span>
+                <span class="badge">Empatía</span>
+            </div>
+        </section>
+
+        <section id="cursos">
+            <h2><span class="icon">📜</span> Cursos y Certificaciones</h2>
+            <ul>
+                <li>
+                    <strong>Análisis de Datos con Python</strong><br>
+                    <span class="badge">Agregar institución y año</span>
+                </li>
+                <li>
+                    <strong>Machine Learning Fundamentals</strong><br>
+                    <span class="badge">Agregar institución y año</span>
+                </li>
+                <li>
+                    <strong>Inglés — Nivel Avanzado</strong><br>
+                    <span class="badge">Agregar institución y año</span>
+                </li>
+                <li>
+                    <strong>Francés — Nivel Intermedio</strong><br>
+                    <span class="badge">Agregar institución y año</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="proyectos">
+            <h2><span class="icon">📊</span> Proyectos Académicos</h2>
+            <ul>
+                <li>
+                    <strong>Proyecto de análisis estadístico</strong><br>
+                    Descripción breve del proyecto. Agrega tus proyectos reales aquí.
+                    <span class="badge">Python · R · Estadística</span>
+                </li>
+                <li>
+                    <strong>Otro proyecto universitario</strong><br>
+                    Descripción breve. Puedes agregar más proyectos.
+                    <span class="badge">SQL · Power BI</span>
+                </li>
+            </ul>
+        </section>
+
+        <section id="intereses">
+            <h2><span class="icon">💡</span> Intereses</h2>
+            <div class="interests-grid">
+                <div class="interest-card">
+                    <div class="interest-icon">📈</div>
+                    Ciencia de Datos
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🤖</div>
+                    Inteligencia Artificial
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🌐</div>
+                    Idiomas y Culturas
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">📚</div>
+                    Investigación
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">💻</div>
+                    Desarrollo Web
+                </div>
+                <div class="interest-card">
+                    <div class="interest-icon">🎨</div>
+                    Diseño Digital
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto">
+            <h2><span class="icon">📬</span> Contacto</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <span class="contact-icon">📧</span>
+                    <span>tucorreo@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">📍</span>
+                    <span>Puno, Perú</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">💼</span>
+                    <span>linkedin.com/in/tu-perfil</span>
+                </div>
+                <div class="contact-item">
+                    <span class="contact-icon">🐙</span>
+                    <span>github.com/tu-usuario</span>
+                </div>
             </div>
         </section>
 
